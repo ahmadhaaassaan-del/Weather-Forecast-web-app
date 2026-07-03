@@ -1,0 +1,106 @@
+/* 1. Global Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* 2. Background Styling */
+body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    color: #f8fafc; /* Soft white text */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 3. Main Layout Grid */
+.app-container {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Sidebar is 350px, right side takes the rest */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* 4. Glass Panels (The modern blurred look) */
+.weather-box, .timeline-box, .map-box {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Blurs what is behind the panel */
+    border-radius: 16px;
+    padding: 25px;
+}
+
+/* 5. Left Sidebar (Weather Box) */
+.weather-box {
+    grid-row: span 2; /* Makes the sidebar stretch down both right-side rows */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+}
+
+.search-row input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+
+.search-row button {
+    background: #38bdf8; /* Bright sky blue */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: #0f172a;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.weather-info h3 {
+    font-size: 3rem;
+    margin: 15px 0;
+    color: #38bdf8;
+}
+
+/* 6. Timeline Layout (Past & Future Cards) */
+#timeline-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Adds a horizontal scrollbar if elements overflow */
+    padding: 15px 0;
+}
+
+/* Individual Day Cards */
+.weather-card {
+    min-width: 120px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Color coding for Past vs Future days */
+.weather-card.past { border-top: 3px solid #f43f5e; }     /* Red tint for past */
+.weather-card.future { border-top: 3px solid #10b981; }   /* Green tint for future */
+
+/* 7. Map Container Layout */
+#map {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
