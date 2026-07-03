@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Weather App</title>
+    <!-- We link our CSS file here so we can style it later -->
+    <link rel="stylesheet" href="style.css">
+    <!-- This is the link to the interactive map tool (Leaflet) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+    <!-- This main container holds everything on our screen -->
+    <div class="app-container">
+        
+        <!-- SECTION 1: The Search & Current Weather Box -->
+        <div class="weather-box">
+            <h2>Weather Dashboard</h2>
+            
+            <!-- The Input Field & Search Button -->
+            <div class="search-row">
+                <input type="text" id="city-input" placeholder="Enter city name..." value="London">
+                <button id="search-btn">Search</button>
+            </div>
+            
+            <!-- Where the live weather details will show up -->
+            <div class="weather-info">
+                <h1 id="city-name">Loading...</h1>
+                <h3 id="temperature">--°C</h3>
+                <p id="description">Clear Sky</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: The 14-Day Timeline (Past 7 Days + Next 7 Days) -->
+        <div class="timeline-box">
+            <h3>14-Day History & Forecast</h3>
+            <div id="timeline-container">
+                <!-- Our JavaScript will automatically insert daily cards here! -->
+            </div>
+        </div>
+
+        <!-- SECTION 3: The Interactive Weather Map -->
+        <div class="map-box">
+            <h3>Interactive Location Map</h3>
+            <div id="map"></div> <!-- The map will draw itself inside this div -->
+        </div>
+
+    </div>
+
+    <!-- This links the mapping tool behavior -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- This links our own JavaScript brain file -->
+    <script src="app.js"></script>
+</body>
+</html>
